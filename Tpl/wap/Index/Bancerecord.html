@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{$Think.lang.yejl}</title>
+
+
+    <!-- 新的代码 -->
+    <link rel="stylesheet" href="__WCSS__/mui.min.css">
+    <link rel="stylesheet" href="__WCSS__/integralbase.css">
+    <link rel="stylesheet" href="__WCSS__/sumConversion.css">
+    <script src="__WJS__/jquery1.11.1.min.js"></script>
+    <script src="__WJS__/rem.js"></script>
+    <script src="__WJS__/mui.min.js"></script>
+
+    <!-- 获取头部的颜色 -->
+    <script type="text/javascript" src="__WJS__/color.js"></script>
+</head>
+
+<body>
+    <!-- 头部 -->
+    <div class="hear">
+        <a href="{:U('Index/index')}" class="jiantou"><img src="__WIMG__/user_jiantouzuo.png" alt=""></a>
+        <p>{$Think.lang.yejl}</p>
+        <!-- 语言切换 -->
+        <!-- 先不要删掉 -->
+        <!-- <div class="top"> 
+                <div class="loginLanguage">
+                    <div id="sample" class="dropdown">
+                        <div id="div_curr_lag" class="parent">
+                            <a href="#">
+                                <span><img class="flag" src="images/English.png" alt="" />English</span></a>
+                        </div>
+                        <div class="son">
+                            <div id="div_en-us" onclick="gradeOnclick('en-us')">
+                                <a>
+                                    <img class="flag" src="images/china.png" alt="" />
+                                    English
+                                    <span class="value"></span>
+                                </a>
+                            </div>
+                            <div id="div_zh-cn" onclick="gradeOnclick('zh-cn')">
+                                <a>
+                                    <img class="flag" src="images/china.png" alt="" />
+                                    中文
+                                    <span class="value"></span>
+                                </a>
+                            </div>
+                            <div id="div_zxcghy84-corean" onclick="gradeOnclick('zxcghy84-corean')">
+                                <a>
+                                    <img class="flag" src="images/hanguo.png" alt="" />
+                                    한국어
+                                    <span class="value"></span>
+                                </a>
+                            </div>
+                            <div id="div_zxcghy84-jp" onclick="gradeOnclick('zxcghy84-jp')">
+                                <a>
+                                    <img class="flag" src="images/Japan.png" alt="" />
+                                    わぶん
+                                    <span class="value"></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+    </div>
+    <!-- 余额积分 -->
+    <div class="tab">
+        <ul>
+            <li>{$Think.lang.ywlx1}</li>
+            <li>{$Think.lang.shue}</li>
+            <li>{$Think.lang.dangq}{$Think.lang.yue}</li>
+            <li>{$Think.lang.sj}</li>
+        </ul>
+    </div>
+
+
+    <div id="pullrefresh" class="mui-content mui-scroll-wrapper refreshContainer">
+        <div class="mui-scroll">
+            <!-- 余额记录列表 -->
+            {:W('Card/jilu',['usermoney_record',10,'1,2,3,4,11,12,21,22,23,24,31,32,41,51,52,53'])}
+        </div>
+    </div>
+    <!-- 底部 -->
+    <div class="refresh">
+        <div>
+            <div class="arrows fl">
+                <img src="__WIMG__/jiantouxia.png" alt="">
+            </div>
+            <span class="fl">上拉加载更多</span>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+    /*mui.init({
+        pullRefresh: {
+            container: '#pullrefresh',
+            down: {
+                callback: function () {
+                    var id = $("#ul").children("li").length;
+                    mui('#pullrefresh').pullRefresh().endPulldownToRefresh()
+                }
+            }
+            // up: {
+            //     // contentrefresh: '正在加载...',
+            //     // callback: pullupRefresh
+            // }
+        }
+    });*/
+
+</script>

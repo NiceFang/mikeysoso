@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>订单详情</title>
+    <link rel="stylesheet" href="__WCSS__/myOrderbase.css">
+    <link rel="stylesheet" href="__WCSS__/Mikeyparticulars.css">
+    <script src="__WJS__/rem.js"></script>
+    <script>
+    </script>
+</head>
+
+<body>
+    <!-- 头部 -->
+    <div class="hear Order_hear">
+        <a href="javascript:history.go(-1)" class="jiantou"><img src="__WIMG__/jiantou2416.png" alt=""></a>
+        订单详情
+    </div>
+
+    <!-- 卖出 -->
+    <div class="content">
+        <div class="sale_box">
+            <div class="sale_box_left fl">
+                <div class="m">
+                    <img src="__WIMG__/m_info.png" alt="">
+                </div>
+                {$orderDetails.pay_nums}
+            </div>
+            <div class="sale_box_content fl">
+                <if condition="$orderDetails['trans_type'] eq 0">
+                    <p class="name">{$payin_name}</p>
+                    <p class="num">{$orderDetails.payin_id}</p>
+                    <else/>
+                    <p class="name">{$payout_name}</p>
+                    <p class="num">{$orderDetails.payout_id}</p>
+                </if>
+
+
+                <div class="div_box">
+                    <if condition="$orderDetails['pay_type'] eq 1">
+                    <img src="__WIMG__/yinghangka1.png" alt="">
+                        <elseif condition="$orderDetails['pay_type'] eq 2"/>
+                    <img src="__WIMG__/zhifubao1.png" alt="">
+                        <elseif condition="$orderDetails['pay_type'] eq 3"/>
+                    <img src="__WIMG__/weixin1.png" alt="">
+                        <else/>
+                    <img src="__WIMG__/IMtoken1.png" alt="">
+                    </if>
+                </div>
+            </div>
+            <div class="div_img">
+                <img src="{$img}" alt="">
+                   <!--     <if condition="$orderDetails['pay_state'] eq 0">
+                    <img src="{$Think.lang.djd}" alt="">
+                        <elseif condition="$orderDetails['pay_state'] eq 1"/>
+                    <img src="__WIMG__/daifukuan.png" alt="">
+                        <elseif condition="$orderDetails['pay_state'] eq 2"/>
+                    <img src="__WIMG__/daishoukuan.png" alt="">
+                        <else/>
+
+                    <img src="" alt="">
+                        </if>-->
+            </div>
+        </div>
+        <div class="user_info">
+            <p class="seller">卖方:{$payout_name}</p>
+            <p>买方: {$payin_name}</p>
+            <p>订单号:{$orderDetails.pay_no}</p>
+            <p>买方ID:{$orderDetails.payin_id}</p>
+            <p>{$Think.lang.mczh1}:{$orderDetails.payout_id}</p>
+            <if condition="$orderDetails['trans_type'] eq 0">
+                <p>订单类型: 买入</p>
+                <else/>
+                <p>订单类型: 卖出</p>
+            </if>
+            <p>{$Think.lang.zzpz}：</p>
+            <div class="file_box">
+                <input type="file">
+                <p><img src="{$orderDetails['trans_img']}" alt=""></p>
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>

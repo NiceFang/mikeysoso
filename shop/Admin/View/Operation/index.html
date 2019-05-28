@@ -1,0 +1,211 @@
+<extend name="Public/layout"/>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>运营分析</title>
+</head>
+
+<block name="style" >
+    <style>
+        #main{
+            position: absolute;
+            left: 10%;
+            top: 51%;
+            transform: translate(0% ,-50%);
+        }
+        #mains{
+            position: absolute;
+            left: 52%;
+            top: 50%;
+            transform: translate(0% ,-50%);
+        }
+    </style>
+    <script type="text/javascript" src="/Public/home/wap/js/echarts.js"></script>
+    <script type="text/javascript" src="/Public/home/wap/js/jquery-3.3.1.min.js"></script>
+<body>
+<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+<div style="display: flex;justify-content: center;align-items: center";>
+<div id="main" style="width: 1000px;height:615px;"></div>
+</div>
+<div style="display: flex;justify-content: center;align-items: center";>
+<div id="mains" style="width: 1000px;height:600px;"></div>
+</div>
+    <script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('main'));
+    var myCharts = echarts.init(document.getElementById('mains'));
+    console.log(myChart);
+    // 指定图表的配置项和数据
+    var option = {
+        title: {
+            text: '当日运营分析',
+            textStyle:{
+                fontSize:"20",
+            }
+        },
+
+        tooltip: {},
+        toolbox: {
+            feature: {
+                left:50,
+                saveAsImage: {}
+            }
+        },
+        label: {
+            show: true,
+            fontSize:20,
+        },
+        xAxis : [
+            {
+                type : 'category',
+
+                data : [],
+                axisLabel: {
+                    show: true,
+                    textStyle: {
+                        fontSize:20
+                    }
+                }
+            }
+        ],
+        yAxis: {
+            axisLabel: {
+                show: true,
+                textStyle: {
+                    fontSize:20
+                }
+            }
+        },
+
+        series: [{
+            name: '数据分析',
+            type: 'bar',
+            color:'#2699ED',
+            barWidth: '50%',
+            data: [5, 20, 36, 10, 10, 50,20]
+        }]
+
+    };
+    $.ajax({
+        url:"/admin/Operation/theData",
+        type:"POST",
+        data:{
+            'id':1111,
+        },
+        success:function (mes) {
+            var Obj = JSON.parse(mes);
+            console.log(Obj);
+            console.log(Obj.payin_idCount);
+            myChart.setOption({
+               xAxis: {
+                    data:["买入量","卖出量","转账量","复投量",'交易量','注册量']
+                },
+                series: [{
+                    // 根据名字对应到相应的系列
+                    data: [Obj.payin_idCount,Obj.payout_idCount,Obj.accountsCount,Obj.afterVotingCount,Obj.volumeCount,Obj.registerCount],
+                }]
+            });
+        }
+    });
+  /*  $.get('data.json').done(function (data) {
+        // 填入数据
+        myChart.setOption({
+            xAxis: {
+                data: data.categories
+            },
+            series: [{
+                // 根据名字对应到相应的系列
+                name: '销量',
+                data: data.data
+            }]
+        });
+    });*/
+   var month={
+        title: {
+            text: '月运营分析'
+        },
+        tooltip: {
+            trigger: 'axis'
+        },
+        legend: {
+            data:["买入量","卖出量","转入","转出","复投量",'交易量','平均交易量'],
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        toolbox: {
+            feature: {
+                saveAsImage: {}
+            }
+        },
+        xAxis: {
+            type: 'category',
+            boundaryGap: false,
+            data: ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'],
+            axisLabel: {
+                show: true,
+                textStyle: {
+                    fontSize:20
+                }
+            }
+        },
+        yAxis: {
+            type: 'value',
+            axisLabel: {
+                show: true,
+                textStyle: {
+                    fontSize:20
+                }
+            }
+        },
+        series: [
+            {
+                name:'买入量',
+                type:'line',
+                stack: '总量',
+                data:[120, 132, 101, 134, 90, 230, 210]
+            },
+            {
+                name:'卖出量',
+                type:'line',
+                stack: '总量',
+                data:[220, 182, 191, 234, 290, 330, 310]
+            },
+            {
+                name:'转入',
+                type:'line',
+                stack: '总量',
+                data:[150, 232, 201, 154, 190, 330, 410]
+            },
+            {
+                name:'复投量',
+                type:'line',
+                stack: '总量',
+                data:[320, 332, 301, 334, 390, 330, 320]
+            },
+            {
+                name:'交易量',
+                type:'line',
+                stack: '总量',
+                data:[820, 932, 901, 934, 1290, 1330, 1320]
+            },
+            {
+                name:'平均交易量',
+                type:'line',
+                color:'red',
+                stack: '总量',
+                data:[820, 932, 901, 934, 1290, 1330, 1320]
+            }
+        ]
+    };
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+    myCharts.setOption(month);
+</script>
+</body>
+</block>
+</html>
+

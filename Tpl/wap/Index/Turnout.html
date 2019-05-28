@@ -1,0 +1,214 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<!-- 字体颜色兼容 -->
+<meta name="format-detection" content="telephone=no">
+<title>{$Think.lang.turnout}</title>
+
+<!-- 旧的代码 -->
+<!-- <link rel="stylesheet" href="__WCSS__/style.css">
+<link rel="stylesheet" href="__WCSS__/meCen-K.css">
+<link rel="stylesheet" href="__WCSS__/YangStyle.css"> -->
+
+
+<!-- 新的代码 -->
+<link rel="stylesheet" href="__WCSS__/mui.min.css">
+<link rel="stylesheet" href="__WCSS__/integralbase.css">
+<link rel="stylesheet" href="__WCSS__/integralConversion.css">
+<script src="__WJS__/jquery1.11.1.min.js"></script>
+<script src="__WJS__/rem.js"></script>
+<script src="__WJS__/mui.min.js"></script>
+
+<script type="text/javascript" src="__COM__/layer/layer.js"></script>
+<script type="text/javascript" src="__COM__/js/index.js"></script>
+<!-- 获取头部的颜色 -->
+<script type="text/javascript" src="__WJS__/color.js"></script>
+
+<style>
+
+
+</style>
+
+<body>
+	<!-- 旧的代码 -->
+	<!-- <div class="header w-header">
+		<div class="header_l">
+			<a href="{:U('Index/index')}"><img src="__WIMG__/jiant.png" alt=""></a>
+		</div>
+		<div class="header_c">
+			<h2>{$Think.lang.turnout}</h2>
+		</div>
+		<div class="header_r"><a href="{:U('Index/Turncords')}">{$Think.lang.zcjl}</a></div>
+	</div>
+
+	<div class="big_width100">
+		<div class="centBalance">
+			<div class="Balance">
+				<p><a class="balance">{$Think.lang.yue}<br /><strong class="moneyS_icon"><img src="/Public/home/wap/images/integraimages/balance3030.png"><span
+							 class="yue" style="color:#cfb263">{$moneyinfo['cangku_num']}</span></strong></a></p>
+			</div>
+			<div class="Balance">
+				<p><a class="balance">{$Think.lang.jifen}<br /><strong class="moneyS_icon"><img src="/Public/home/wap/images/integraimages/balance3030.png"><span
+							 class="jifen">{$moneyinfo['fengmi_num']}</span></strong></a></p>
+			</div>
+			<div class="dLine"></div>
+		</div>
+		<div class="w-center">
+			<div class="fill_sty">
+				<h2>{$Think.lang.rollOut}</h2>
+				<input type="number" name="other_account" placeholder="{$Think.lang.srsjhm}" autocomplete="off" id="phone_uid">
+				<div class="w-mydiv">
+					<h3>{$Think.lang.srsjhm}</h3>
+					<div class="bottom"></div>
+				</div>
+				<div class="buttonGeoup">
+					<a href="#" class="not_next" id="ternNextStep">{$Think.lang.nextstep}</a>
+					<a href="{:U('Index/exehange')}" class="exchange">{$Think.lang.jfdh}</a>
+				</div>
+			</div>
+		</div>
+
+	</div> -->
+	
+	 <!-- 头部 -->
+	 <div class="hear">
+			<a href="{:U('Index/index')}" class="jiantou"><img src="__WIMG__/user_jiantouzuo.png" alt=""></a>
+			<p>{$Think.lang.turnout}</p>
+			<!-- 语言切换 -->
+			<!-- 先不要删掉 -->
+			<!-- <div class="top">
+				<div class="loginLanguage">
+					<div id="sample" class="dropdown">
+						<div id="div_curr_lag" class="parent">
+							<a href="#">
+								<span><img class="flag" src="images/English.png" alt="" />English</span></a>
+						</div>
+						<div class="son">
+							<div id="div_en-us" onclick="gradeOnclick('en-us')">
+								<a>
+									<img class="flag" src="images/china.png" alt="" />
+									English
+									<span class="value"></span>
+								</a>
+							</div>
+							<div id="div_zh-cn" onclick="gradeOnclick('zh-cn')">
+								<a>
+									<img class="flag" src="images/china.png" alt="" />
+									中文
+									<span class="value"></span>
+								</a>
+							</div>
+							<div id="div_zxcghy84-corean" onclick="gradeOnclick('zxcghy84-corean')">
+								<a>
+									<img class="flag" src="images/hanguo.png" alt="" />
+									한국어
+									<span class="value"></span>
+								</a>
+							</div>
+							<div id="div_zxcghy84-jp" onclick="gradeOnclick('zxcghy84-jp')">
+								<a>
+									<img class="flag" src="images/Japan.png" alt="" />
+									わぶん
+									<span class="value"></span>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div> -->
+	</div>
+	<!-- 个人信息 -->
+	<div class="user_info">
+		{:W('Card/dengji',['userInfo'])}
+	</div>
+	<!-- 余额积分 -->
+	<div class="mui-content tab">
+		<div class="title">
+			<div id="segmentedControl" class="mui-segmented-control mui-segmented-control-inverted mui-segmented-control-primary title_box">
+				<li id="zhuanchu">
+					<a class="mui-control-item title_box_a  mui-active" href="#item2" id="a">
+						{$Think.lang.rollOut}
+					</a>
+				</li>
+				<li id="lijilu">
+					<a class="mui-control-item title_box_a" href="#item3" id="b">
+						{$Think.lang.zcjl}
+					</a>
+				</li>
+			</div>
+		</div>
+		<div class="content">
+			<div id="item2" class="mui-control-content integral mui-active">
+				<p class="price">{$Think.lang.srsjhm}</p>
+				<div class="div_input">
+
+					<input type="number" name="other_account" placeholder="{$Think.lang.srsjhm}" autocomplete="off" id="phone_uid">
+				</div>
+				<!-- <p class="hint">提示：最低兑换数量是100</p> -->
+				<div class="conversion turnout_conversion turnout">
+
+					<a  class="not_next" id="ternNextStep">{$Think.lang.nextstep}</a>
+					<!--<a href="{:U('Index/exehange')}" class="exchange">{$Think.lang.jfdh}</a>-->
+				</div>
+			</div>
+			<div id="item3" class="mui-control-content record">
+				<div class="all_box">
+					<div class="column">
+						<ul>
+							<li>{$Think.lang.ywlx1}</li>
+							<li>{$Think.lang.shue}</li>
+							<li>{$Think.lang.dangq}{$Think.lang.yue}</li>
+							<li>{$Think.lang.sj}</li>
+						</ul>
+					</div>
+					<div class="roll_box">
+						
+						<div id="refreshContainer" class="scroll mui-clearfix mui-content mui-scroll-wrapper refreshContainer" style="height: 100%;">
+							<div class="mui-scroll mui-clearfix asd">
+								<!--添加下拉小物件-->
+								{:W('Card/jilu',['usermoney_record',10,'3,4'])}
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="refresh">
+					<div>
+						<div class="arrows fl">
+							<img src="__WIMG__/jiantouxia.png" alt="">
+						</div>
+						<span class="fl">下拉加载更多</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+
+
+	<!-- //配置错误说明 -->
+	<input type="hidden" value="{$Think.lang.dfzhbnwk}" id="msg1">
+	<script type="text/javascript">
+		var msg = $('#msg1').val(); //获取错误信息
+		$('#ternNextStep').on('click', function () {
+			Checku();
+		});
+		/*	if($("#lijilu").children('a').is(".mui-active")){
+			    alert(1)
+				console.log(($("#lijilu").children('a')))
+			}else{
+			    alert(2)
+			}*/
+
+
+	/*$(".lis").on("click",function () {
+		alert(1);
+    })*/
+
+
+	</script>
+
+
+
+</body>
+
+</html>

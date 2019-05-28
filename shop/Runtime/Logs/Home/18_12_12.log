@@ -1,0 +1,197 @@
+[ 2018-12-12T09:42:53+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000092s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000990s ]
+INFO: Run Common\Behavior\CheckLangBehavior [ RunTime:0.003747s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004847s ]
+SQL: SHOW COLUMNS FROM `ysk_config` [ RunTime:0.0151s ]
+SQL: SELECT `value`,`tip`,`options` FROM `ysk_config` WHERE `name` = 'TOGGLE_WEB_SITE' LIMIT 1   [ RunTime:0.0144s ]
+SQL: SHOW COLUMNS FROM `ysk_user` [ RunTime:0.0163s ]
+SQL: SHOW COLUMNS FROM `ysk_user` [ RunTime:0.0161s ]
+SQL: SELECT `status`,`session_id` FROM `ysk_user` WHERE `userid` = 8820 LIMIT 1   [ RunTime:0.0149s ]
+SQL: SHOW COLUMNS FROM `ysk_banner` [ RunTime:0.0152s ]
+SQL: SELECT * FROM `ysk_banner` ORDER BY sort  [ RunTime:0.0145s ]
+SQL: SELECT `img_head`,`userid`,`username`,`user_credit`,`is_reward`,`today_releas`,`quanxian`,`use_grade`,`releas_time`,`is_degraded`,`is_auto` FROM `ysk_user` WHERE `userid` = 8820 LIMIT 1   [ RunTime:0.0151s ]
+NOTIC: [2] getimagesize(./Public/home/wap/heads/5c064b81ac9b8.jpg): failed to open stream: No such file or directory D:\mikey\shop\Home\Controller\IndexController.class.php 第 43 行.
+SQL: SHOW COLUMNS FROM `ysk_store` [ RunTime:0.0149s ]
+SQL: SELECT `cangku_num`,`fengmi_num` FROM `ysk_store` WHERE `uid` = 8820 LIMIT 1   [ RunTime:0.0145s ]
+SQL: SHOW COLUMNS FROM `ysk_user_award_execute` [ RunTime:0.0150s ]
+SQL: SELECT `id`,`scores`,`get_type`,`is_release`,`is_success`,`origin_id`,`award_id` FROM `ysk_user_award_execute` WHERE `user_id` = 8820 AND `is_success` = 1 AND `create_time` >= '2018-12-11 09:42:53' LIMIT 8   [ RunTime:0.0168s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000396s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.001231s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001725s ]
+NOTIC: [8] Undefined index: m D:\mikey\ThinkPHP\Common\functions.php 第 977 行.
+NOTIC: [8] Undefined index: m D:\mikey\ThinkPHP\Common\functions.php 第 977 行.
+NOTIC: [8] Undefined index: m D:\mikey\ThinkPHP\Common\functions.php 第 977 行.
+NOTIC: [8] Undefined index: m D:\mikey\ThinkPHP\Common\functions.php 第 977 行.
+NOTIC: [8] Undefined index: m D:\mikey\ThinkPHP\Common\functions.php 第 977 行.
+NOTIC: [8] Undefined index: m D:\mikey\ThinkPHP\Common\functions.php 第 977 行.
+NOTIC: [8] Undefined index: m D:\mikey\ThinkPHP\Common\functions.php 第 977 行.
+NOTIC: [8] Undefined index: m D:\mikey\ThinkPHP\Common\functions.php 第 977 行.
+NOTIC: [8] Undefined index: m D:\mikey\ThinkPHP\Common\functions.php 第 977 行.
+NOTIC: [8] Undefined index: m D:\mikey\ThinkPHP\Common\functions.php 第 977 行.
+NOTIC: [8] Undefined index: m D:\mikey\ThinkPHP\Common\functions.php 第 977 行.
+NOTIC: [8] Undefined index: m D:\mikey\ThinkPHP\Common\functions.php 第 977 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.031061s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.031117s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000734s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000784s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001152s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001218s ]
+
+[ 2018-12-12T09:42:54+08:00 ] 127.0.0.1 /Index/pdajax
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000118s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000739s ]
+INFO: Run Common\Behavior\CheckLangBehavior [ RunTime:0.002262s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003121s ]
+SQL: SHOW COLUMNS FROM `ysk_config` [ RunTime:0.0153s ]
+SQL: SELECT `value`,`tip`,`options` FROM `ysk_config` WHERE `name` = 'TOGGLE_WEB_SITE' LIMIT 1   [ RunTime:0.0147s ]
+SQL: SHOW COLUMNS FROM `ysk_user` [ RunTime:0.0165s ]
+SQL: SHOW COLUMNS FROM `ysk_user` [ RunTime:0.0161s ]
+SQL: SELECT `status`,`session_id` FROM `ysk_user` WHERE `userid` = 8820 LIMIT 1   [ RunTime:0.0141s ]
+SQL: SHOW COLUMNS FROM `ysk_news` [ RunTime:0.0149s ]
+SQL: SELECT * FROM `ysk_news` WHERE ( create_time>=1544544000 ) ORDER BY id desc  [ RunTime:0.0146s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000676s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000726s ]
+
+[ 2018-12-12T09:42:55+08:00 ] 127.0.0.1 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000075s ]
+
+[ 2018-12-12T09:43:48+08:00 ] 127.0.0.1 /Index/Bancerecord.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000084s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000805s ]
+INFO: Run Common\Behavior\CheckLangBehavior [ RunTime:0.003849s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004819s ]
+SQL: SHOW COLUMNS FROM `ysk_config` [ RunTime:0.0141s ]
+SQL: SELECT `value`,`tip`,`options` FROM `ysk_config` WHERE `name` = 'TOGGLE_WEB_SITE' LIMIT 1   [ RunTime:0.0144s ]
+SQL: SHOW COLUMNS FROM `ysk_user` [ RunTime:0.0153s ]
+SQL: SHOW COLUMNS FROM `ysk_user` [ RunTime:0.0148s ]
+SQL: SELECT `status`,`session_id` FROM `ysk_user` WHERE `userid` = 8820 LIMIT 1   [ RunTime:0.0134s ]
+SQL: SHOW COLUMNS FROM `ysk_usermoney_record` [ RunTime:0.0144s ]
+SQL: SELECT `master_id`,`deputy_id`,`get_nums`,`get_type`,`now_nums`,`get_time` FROM `ysk_usermoney_record` WHERE `master_id` = 8820 ORDER BY id desc  [ RunTime:0.0341s ]
+NOTIC: [8] Undefined offset: 90 D:\mikey\shop\Home\Controller\IndexController.class.php 第 602 行.
+NOTIC: [8] Undefined offset: 33 D:\mikey\shop\Home\Controller\IndexController.class.php 第 602 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ysk_usermoney_record` WHERE `master_id` = 8820 LIMIT 1   [ RunTime:0.0166s ]
+NOTIC: [8] Undefined index: m D:\mikey\ThinkPHP\Common\functions.php 第 977 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000193s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000407s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000687s ]
+NOTIC: [8] Undefined index: m D:\mikey\ThinkPHP\Common\functions.php 第 977 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000241s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000028s ]
+INFO: [ template_filter ] --END-- [ RunTime:-0.009319s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007742s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007803s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000336s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000384s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008265s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007803s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000012s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.000124s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000613s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000675s ]
+
+[ 2018-12-12T09:43:48+08:00 ] 127.0.0.1 /Index/ajaxinfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000077s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000524s ]
+INFO: Run Common\Behavior\CheckLangBehavior [ RunTime:0.002263s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002882s ]
+SQL: SHOW COLUMNS FROM `ysk_config` [ RunTime:0.0149s ]
+SQL: SELECT `value`,`tip`,`options` FROM `ysk_config` WHERE `name` = 'TOGGLE_WEB_SITE' LIMIT 1   [ RunTime:0.0143s ]
+SQL: SHOW COLUMNS FROM `ysk_user` [ RunTime:0.0162s ]
+SQL: SHOW COLUMNS FROM `ysk_user` [ RunTime:0.0164s ]
+SQL: SELECT `status`,`session_id` FROM `ysk_user` WHERE `userid` = 8820 LIMIT 1   [ RunTime:0.0142s ]
+SQL: SHOW COLUMNS FROM `ysk_usermoney_record` [ RunTime:0.0150s ]
+SQL: SELECT * FROM `ysk_usermoney_record` WHERE `master_id` = 8820 AND `get_type` IN ('1','2','3','4','11','12','21','22','23','24','31','32','41','51','52','53') ORDER BY id desc LIMIT 10   [ RunTime:0.0166s ]
+
+[ 2018-12-12T09:43:54+08:00 ] 127.0.0.1 /Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000076s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000509s ]
+INFO: Run Common\Behavior\CheckLangBehavior [ RunTime:0.002218s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002822s ]
+SQL: SHOW COLUMNS FROM `ysk_config` [ RunTime:0.0142s ]
+SQL: SELECT `value`,`tip`,`options` FROM `ysk_config` WHERE `name` = 'TOGGLE_WEB_SITE' LIMIT 1   [ RunTime:0.0134s ]
+SQL: SHOW COLUMNS FROM `ysk_user` [ RunTime:0.0145s ]
+SQL: SHOW COLUMNS FROM `ysk_user` [ RunTime:0.0147s ]
+SQL: SELECT `status`,`session_id` FROM `ysk_user` WHERE `userid` = 8820 LIMIT 1   [ RunTime:0.0131s ]
+SQL: SHOW COLUMNS FROM `ysk_banner` [ RunTime:0.0137s ]
+SQL: SELECT * FROM `ysk_banner` ORDER BY sort  [ RunTime:0.0133s ]
+SQL: SELECT `img_head`,`userid`,`username`,`user_credit`,`is_reward`,`today_releas`,`quanxian`,`use_grade`,`releas_time`,`is_degraded`,`is_auto` FROM `ysk_user` WHERE `userid` = 8820 LIMIT 1   [ RunTime:0.0138s ]
+NOTIC: [2] getimagesize(./Public/home/wap/heads/5c064b81ac9b8.jpg): failed to open stream: No such file or directory D:\mikey\shop\Home\Controller\IndexController.class.php 第 43 行.
+SQL: SHOW COLUMNS FROM `ysk_store` [ RunTime:0.0148s ]
+SQL: SELECT `cangku_num`,`fengmi_num` FROM `ysk_store` WHERE `uid` = 8820 LIMIT 1   [ RunTime:0.0136s ]
+SQL: SHOW COLUMNS FROM `ysk_user_award_execute` [ RunTime:0.0140s ]
+SQL: SELECT `id`,`scores`,`get_type`,`is_release`,`is_success`,`origin_id`,`award_id` FROM `ysk_user_award_execute` WHERE `user_id` = 8820 AND `is_success` = 1 AND `create_time` >= '2018-12-11 09:43:54' LIMIT 8   [ RunTime:0.0166s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000381s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000431s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000897s ]
+NOTIC: [8] Undefined index: m D:\mikey\ThinkPHP\Common\functions.php 第 977 行.
+NOTIC: [8] Undefined index: m D:\mikey\ThinkPHP\Common\functions.php 第 977 行.
+NOTIC: [8] Undefined index: m D:\mikey\ThinkPHP\Common\functions.php 第 977 行.
+NOTIC: [8] Undefined index: m D:\mikey\ThinkPHP\Common\functions.php 第 977 行.
+NOTIC: [8] Undefined index: m D:\mikey\ThinkPHP\Common\functions.php 第 977 行.
+NOTIC: [8] Undefined index: m D:\mikey\ThinkPHP\Common\functions.php 第 977 行.
+NOTIC: [8] Undefined index: m D:\mikey\ThinkPHP\Common\functions.php 第 977 行.
+NOTIC: [8] Undefined index: m D:\mikey\ThinkPHP\Common\functions.php 第 977 行.
+NOTIC: [8] Undefined index: m D:\mikey\ThinkPHP\Common\functions.php 第 977 行.
+NOTIC: [8] Undefined index: m D:\mikey\ThinkPHP\Common\functions.php 第 977 行.
+NOTIC: [8] Undefined index: m D:\mikey\ThinkPHP\Common\functions.php 第 977 行.
+NOTIC: [8] Undefined index: m D:\mikey\ThinkPHP\Common\functions.php 第 977 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.016310s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.016366s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000310s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000356s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000589s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000649s ]
+
+[ 2018-12-12T09:43:54+08:00 ] 127.0.0.1 /Index/pdajax
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000073s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000733s ]
+INFO: Run Common\Behavior\CheckLangBehavior [ RunTime:0.003400s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004262s ]
+SQL: SHOW COLUMNS FROM `ysk_config` [ RunTime:0.0190s ]
+SQL: SELECT `value`,`tip`,`options` FROM `ysk_config` WHERE `name` = 'TOGGLE_WEB_SITE' LIMIT 1   [ RunTime:0.0155s ]
+SQL: SHOW COLUMNS FROM `ysk_user` [ RunTime:0.0152s ]
+SQL: SHOW COLUMNS FROM `ysk_user` [ RunTime:0.0153s ]
+SQL: SELECT `status`,`session_id` FROM `ysk_user` WHERE `userid` = 8820 LIMIT 1   [ RunTime:0.0146s ]
+SQL: SHOW COLUMNS FROM `ysk_news` [ RunTime:0.0155s ]
+SQL: SELECT * FROM `ysk_news` WHERE ( create_time>=1544544000 ) ORDER BY id desc  [ RunTime:0.0177s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001215s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001322s ]
+

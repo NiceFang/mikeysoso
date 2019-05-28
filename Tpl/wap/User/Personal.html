@@ -1,0 +1,341 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>{$Think.lang.Setup}</title>
+<!-- <link rel="stylesheet" href="__WCSS__/style.css">  -->
+<!-- <link rel="stylesheet" href="__WCSS__/meCen.css"> -->
+<link rel="stylesheet" href="__WCSS__/reset.css">
+<link rel="stylesheet" href="__WCSS__/uploads.css">
+<link rel="stylesheet" href="__WCSS__/login.css">
+
+<link rel="stylesheet" href="__WCSS__/normalize.css">
+<link rel="stylesheet" href="__WCSS__/wen.css">
+<link rel="stylesheet" href="__WCSS__/meCen-K.css">
+
+<link rel="stylesheet" href="__WCSS__/YangStyle.css">
+<link rel="stylesheet" href="__WCSS__/Personal.css">
+<script src="__WJS__/jquery1.11.1.min.js"></script>
+<script type="text/javascript" src="__COM__/layer/layer.js"></script>
+<script type="text/javascript" src="__COM__/js/index.js"></script>
+<script type="text/javascript" src="__WJS__/upload.js"></script>
+<script type="text/javascript" src="__WJS__/rem.js"></script>
+
+<!-- 获取头部的颜色 -->
+<script type="text/javascript" src="__WJS__/color.js"></script>
+<style>
+	/*.sett_xiug{display:none;}*/
+	/*.button,#clipBtn{width: 130px;font-size: 16px;}*/
+	body{background: #f4f4f4;}
+	/*.sett_xiug{display:none;}*/
+	/*.button,#clipBtn{display: block;z-index: 2;height: .8rem;width: 90%;margin: 0 auto;float: none;border-radius: 5px;text-align: center;line-height: 40px;color: #fff;font-size: 16px;margin-bottom: 10px;}*/
+	.setlistboxs ul{margin-top: 10px;}
+	.setlistboxs ul li a div{display: flex;align-items: center;}
+	/*.bg96{background: #fff;}
+    .big_width100{background: #fff; margin-top:1rem; }*/
+    .w-bj p{margin: 0;}
+	/*.w-nicheng{line-height: .7rem;color: #9ba2ee !important;}
+	.red_package{padding: 15px ;background-color: #fff;}*/
+	.red_package a{display: flex;justify-content: space-between;align-items: center;}
+	.red_package .red_left {display: flex;align-items: center;font-size: 12px;color:#333;}
+	.red_package .red_left img{width: 15px;height: 20px;margin-right: 10px;}
+	.red_package .red_left span{margin-left: 10px;color:#999;}
+	.red_package  .arrow{display: flex;align-items: center;}
+	.red_package  .arrow span{width: 4px;height: 4px;border-radius: 50%;background-color: red;display: inline-block;}
+	.red_package  .arrow img{width: 22px;height: 22px;}
+	.loginLanguage {
+		width: 118px;
+		height: 48px;
+		position: absolute;
+		right: 0;
+
+	}
+</style>
+
+
+	<!-- 头部 -->
+	<div class="head">
+		<div class="head_title">
+			<div class="top">
+				<div class="loginLanguage">
+					<div id="sample" class="dropdown" >
+						<div id="div_curr_lag" class="parent">
+							<a href="#">
+								<span><img class="flag select_flag" src="__WIMG__/English.png" alt="" />English</span></a>
+						</div>
+						<div class="son">
+							<div id="div_en-us" onclick="gradeOnclick('en-us')"><a><img class="flag" src="__WIMG__/English.png" alt="" />English<span
+									 class="value"></span></a></div>
+							<div id="div_zh-cn" onclick="gradeOnclick('zh-cn')"><a><img class="flag" src="__WIMG__/china.png" alt="" />中文<span
+									 class="value"></span></a></div>
+							<div id="div_zxcghy84-corean" onclick="gradeOnclick('zxcghy84-corean')"><a><img class="flag" src="__WIMG__/hanguo.png"
+									 alt="" />한국어<span class="value"></span></a></div>
+							<div id="div_zxcghy84-jp" onclick="gradeOnclick('zxcghy84-jp')"><a><img class="flag" src="__WIMG__/Japan.png"
+									 alt="" />わぶん<span class="value"></span></a></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="user">
+			<div class="user_info ">
+				<div class="div_img fl" id="user_head">
+					<img src="__IMGHEAD__/{$uinfo['img_head']}"  alt="">
+					<input type="file" id="head_file" onchange="imgChange()" name="header_img" hidden>
+				</div>
+				<div class="user_info_right fl">
+					<p class="name">{$Think.lang.usename} : {$uinfo['username']}</p>
+					<div>
+						<p class="uid">UID :{$uid}</p>
+						<p class="grade">{$Think.lang.rank}：{$uinfo['use_grade_name']}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="centBalance">
+			<div class="Balance">
+				<a class="balance" href="{:U('Index/Bancerecord')}">
+					<p>{$Think.lang.yue}</p>
+					<div class="balance_box">
+						<div class="div_info fl">
+							<img src="__WIMG__/mony.png" alt="">
+						</div>
+						<span class="yue fl">
+							&nbsp;{$moneyinfo['cangku_num']|Showtwo}
+						</span>
+					</div>
+				</a>
+			</div>
+			<div class="Balance">
+				<a class="balance" href="{:U('Index/Exchangerecords')}">
+					<p>{$Think.lang.jifen}</p>
+					<div class="balance_box">
+						<div class="div_info fl">
+							<img src="__WIMG__/mony.png" alt="">
+						</div>
+						<span class="yue fl">
+							&nbsp;{$moneyinfo['fengmi_num']|Showtwo}
+						</span>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+	<div class="setlistboxs">
+		<ul style="margin-top: 0;">
+			<li><a href="{:U('User/Setuname')}">
+					<div>
+						<img src="__WIMG__/user/nicheng.png" alt="">
+						<p>{$Think.lang.nickname}</p>
+					</div>
+					<img src="__WIMG__/jiantouyou.png" alt="">
+				</a></li>
+			<li><a href="{:U('User/Mobile')}">
+					<div>
+						<img src="__WIMG__/user/dianhua.png" alt="">
+						<p>{$Think.lang.dh}</p>
+					</div>
+					<img src="__WIMG__/jiantouyou.png" alt="">
+				</a></li>
+			<li><a href="{:U('User/accountManage')}">
+					<div>
+						<img src="__WIMG__/user/zhanghuguanli.png" alt="">
+						<p>{$Think.lang.bankcard}</p>
+					</div>
+					<img src="__WIMG__/jiantouyou.png" alt="">
+				</a></li>
+		</ul>
+		<ul>
+			<li><a href="{:U('User/Setpwd',array('type'=>1))}">
+					<div>
+						<img src="__WIMG__/user/denglvmima.png" alt="">
+						<p>{$Think.lang.loginpwd}</p>
+					</div>
+					<img src="__WIMG__/jiantouyou.png" alt="">
+				</a></li>
+			<li><a href="{:U('User/Setpwd',array('type'=>2))}">
+					<div>
+						<img src="__WIMG__/user/zhifumima.png" alt="">
+						<p>{$Think.lang.paypwd}</p>
+					</div>
+					<img src="__WIMG__/jiantouyou.png" alt="">
+				</a></li>
+		</ul>
+		<ul>
+			<li><a href="{:U('User/News')}" class="guojiweikaifang">
+					<div>
+						<img src="__WIMG__/user/gonggao.png" alt="">
+						<p>{$Think.lang.notice}</p>
+					</div>
+					<img src="__WIMG__/jiantouyou.png" alt="">
+				</a></li>
+			<li><a href="{:U('Index/feedbackInfo')}">
+					<div>
+						<img src="__WIMG__/user/tousu.png" alt="">
+						<p>{$Think.lang.complins}</p>
+					</div>
+					<img src="__WIMG__/jiantouyou.png" alt="">
+				</a></li>
+			<li><a href="javascript:void(0)">
+					<div>
+						<img src="__WIMG__/user/banben.png" alt="">
+						<p>{$Think.lang.edition}(1.1.0)</p>
+					</div>
+					<img src="__WIMG__/jiantouyou.png" alt="">
+				</a></li>
+		</ul>
+		
+	</div>
+	<div class="loginout">
+		<a class="quit" href="{:U('User/Loginout')}">{$Think.lang.loginout}</a>
+	</div>
+	<div style="height: 1px"></div>
+	<div class="footer-fan">
+		<a href="{:U('Index/index')}">
+			<img src="__WIMG__/shouye.png" alt="首页">
+			<p class="">{$Think.lang.sy}</p>
+		</a>
+		<!-- <a href="{:U('Turntable/index')}"> -->
+		<a id="notSell">
+			<img src="__WIMG__/zican.png" alt="资产">
+			<p>{$Think.lang.zichan}</p>
+		</a>
+
+		<a href="https://shangmeng.itdoor.cc/app/index.php?i=9&c=entry&m=ewei_shopv2&do=mobile">
+			<img src="__WIMG__/gouwuche.png" alt="商城">
+			<p>{$Think.lang.shoppingmall}</p>
+		</a>
+		<a href="{:U('User/Personal')}">
+			<img src="__WIMG__/wode_select.png" alt="我的">
+			<p class="active">{$Think.lang.my}</p>
+		</a>
+	</div>
+
+<script type="text/javascript">
+	$(".w-x").click(function () {
+		$(".htmleaf-container").toggle();
+	})
+
+	$(document).ready(function () {
+		$("#duoyhide").click(function () {
+			$("#duoynone").toggle(); //toggle() 方法切换元素的可见状态。 如果被选元素可见,则隐藏这些元素,如果被选元素隐藏,则显示这些元素。
+		});
+
+	});
+
+	$(document).ready(function () {
+		$("#duoyhidea").click(function () {
+			$("#duoynone").toggle(); //toggle() 方法切换元素的可见状态。 如果被选元素可见,则隐藏这些元素,如果被选元素隐藏,则显示这些元素。
+		});
+
+	});
+</script>
+
+<script>
+    $("#user_head").click(function () {
+        $('#head_file').click();
+    })
+    // // 点击改变用户头像
+    function imgChange() {
+        //获取点击的文本框
+        var file = document.getElementById("head_file");
+        //  人物头像
+        var user_head = document.getElementById("user_head");
+        console.log($('#head_file')[0].files[0]);
+        // 人物头像地址
+        var formData = new FormData();
+        var img = $('#head_file')[0].files[0];
+        formData.append('header_img',img);
+        $.ajax({
+            url:"{:U('User/upload_img')}",
+            type:'post',
+            processData : false,
+            contentType : false,
+            async:false,
+            data:formData,
+            success:function(data){
+                console.log(data);
+                if(data.status==0){
+                    alert(data.message);
+                }else{
+                    msg_alert("{$Think.lang.xgcg}");
+                    window.location.reload();
+
+                }
+            }
+
+        });
+    }
+</script>
+
+
+<script type="text/javascript">
+    //js获取coookie方法
+    function get_cookie(Name) {
+        var search = Name + "="//查询检索的值
+        var returnvalue = "";//返回值
+        if (document.cookie.length > 0) {
+            sd = document.cookie.indexOf(search);
+            if (sd!= -1) {
+                sd += search.length;
+                end = document.cookie.indexOf(";", sd);
+                if (end == -1)
+                    end = document.cookie.length;
+                //unescape() 函数可对通过 escape() 编码的字符串进行解码。
+                returnvalue=unescape(document.cookie.substring(sd, end))
+            }
+        }
+        return returnvalue;
+    }
+	$(document).ready(function () {
+		// 点击切换语言
+		$(".dropdown .son").hide();
+		$("#div_curr_lag").click(function () {
+			$(".dropdown .son").toggle();
+		});
+		$(".dropdown .son div a").click(function () {
+			var text = $(this).html();
+			$(".dropdown .parent a span").html(text);
+			// localStorage.setItem('key',JSON.stringify(text));
+			$(".dropdown .son").hide(); //选择完成以后隐藏页面
+		});
+		var curr_lag = $("#hid_lag").val();
+		//console.log(curr_lag);
+        var _cookie = get_cookie('think_language');
+
+        if (_cookie == "") {
+            //若cookie是空的
+            gradeOnclick("en-us");
+        } else {
+            var curr_html_lag = $("#div_" + _cookie).html();
+            $("#div_curr_lag").html(curr_html_lag);
+        }
+
+	});
+	var curr_lag = $("#hid_lag").val();
+	var curr_html_lag = $("#div_" + curr_lag).html();
+	$("#div_curr_lag").html(curr_html_lag);
+
+	function gradeOnclick(url) {
+        $.ajax({
+            url: '/Index/Lang',
+            type: 'post',
+            data: {
+                'url': url
+            },
+            success: function (mes) {
+                if (mes.status) {
+                    window.location.href = "?l=" + mes.message;
+                } else {
+                    alert(mes.message);
+                }
+            }
+        })
+	};
+</script>
+<script>
+	$("#notSell").click(function () {
+		msg_alert("{$Think.lang.zwkf}");
+	})
+</script>
+<!--头像上传新EEEEE-->
+</script>

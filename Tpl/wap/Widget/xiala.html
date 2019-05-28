@@ -1,0 +1,239 @@
+<ul class="ul mui-table-view mui-table-view-chevron uls" id="ul">
+
+</ul>
+<!--弹框JS-->
+<!--<script type="text/javascript" src="/Public/home/common/layer/layer.js"></script>-->
+<script>
+    //公共提示框
+    function msg_alert(message,url){
+
+        if(url){
+            layer.msg(message,{time:3000},function(){
+                window.location.href=url;
+            });
+        }else{
+            layer.msg(message,{time:3000});
+        }
+
+    }
+
+    $(function () {
+       var test = window.location.pathname;
+       //当页面加载完的时候 判断是不是余额和积分记录页面 若是则进行ajax获取所有记录
+       if(test=="/Index/Bancerecord.html" || test=="/Index/Exchangerecords.html" || test=="/Index/feedbackInfo.html"){
+           $.ajax({
+               url: "/Index/ajaxinfo",
+               type: 'post',
+               data: {
+                   'jilu': 'zhuanzhangjilu',
+                   'url':test,
+                   'page':"{$page}",
+                   'table':"{$table}",
+                   'in':"{$in}",
+                   'where':"{$where}"
+               },
+               success: function (mes) {
+                   // console.log(mes);
+
+                   if(mes.message=='"kong"' || mes.message==null || mes.message==undefined || mes.message==''){
+                       msg_alert('没有记录了哦');
+                       mui('.refreshContainer').pullRefresh().endPullupToRefresh(true);
+                       return;
+                   }
+
+
+                   var Obj = JSON.parse(mes.message);
+                   var li = "";
+                   for (var val in Obj) {
+                       //{$Think.lang.yhfkclz}判断 若是用户反馈页面的话
+                       if(test=="/Index/feedbackInfo.html"){
+                          // console.log(Obj);
+                           li += "<li class='lis' data-id='"+Obj[val].id+"'>";
+                           li += "<h2>" + Obj[val].content.substring(0,10) + "</h2>"
+                           if(Obj[val].status==2){
+                               li += "<h4>"+ Obj[val].reply.substr(0,10)+ "...</h4>"
+                               li +="<img src=\"{$Think.lang.yhfkycl}\" alt=\"\">"
+                           }else{
+                               li += "<h4>待回复</h4>"
+                               li +="<img src=\"{$Think.lang.yhfkclz}\" alt=\"\">"
+                           }
+                           li += "<p class='mui-clearfix'>"
+                           li += "<span class='fl'>Mikey钱包</span>"
+                           li += "<span class='fr'>" + Obj[val].create_time + "</span></p>"
+                           li += "</li>"
+                       }else{
+
+                           //若不是用户反馈页面 那么就是余额或者积分页面
+                           //判断是否是属于转入或者转出记录
+                           if(Obj[val].get_type ==3 || Obj[val].get_type == 4){
+                               //若是则进行添加点击跳转转账详情页面 若不是则 不添加点击事件
+                               li += "<li class='lis' data-tepy='liis'  data-id='"+Obj[val].id+"'>";
+                           }else{
+                               li += "<li class='lis' data-id='"+Obj[val].id+"'>";
+                           }
+                           li += "<p>" + Obj[val].type_name + "</p>";
+                           if(Obj[val].get_nums>0){
+                               li += "<p class='red'>+"+Obj[val].get_nums + "</p>";
+                           }else{
+                               li += "<p class='green'>" + Obj[val].get_nums + "</p>";
+                           }
+                           li += "<p>" + Obj[val].now_nums + "</p>";
+                           li += "<p>" + Obj[val].get_time + "</p>";
+                           li += "</li>";
+                       }
+
+                   }
+                   $("#ul").append(li);
+               }
+           });
+       }
+   })
+    //转账页面和积分页面触发ajax 获取记录
+    $("#lijilu").on("tap", "a", function () {
+        var test = window.location.pathname;
+        $.ajax({
+            url: "/Index/ajaxinfo",
+            type: 'post',
+            data: {
+                'jilu': 'zhuanzhangjilu',
+                'url':test,
+                'page':"{$page}",
+                'table':"{$table}",
+                'in':"{$in}",
+                'where':"{$where}"
+            },
+            success: function (mes) {
+                if(mes.message=='"kong"' || mes.message==null || mes.message==undefined || mes.message==''){
+                    msg_alert('没有记录了哦');
+                    mui('.refreshContainer').pullRefresh().endPullupToRefresh(true);
+                    return;
+                }
+                var Obj = JSON.parse(mes.message);
+                var li = "";
+                for (var val in Obj) {
+                    if(Obj[val].get_type ==3 || Obj[val].get_type == 4){
+                        li += "<li class='lis' data-tepy='liis' data-id='"+Obj[val].id+"'>";
+                    }else{
+                        li += "<li class='lis' data-id='"+Obj[val].id+"'>";
+                    }
+
+                    li += "<p>" + Obj[val].type_name + "</p>"
+                    if(Obj[val].get_nums>0){
+                        li += "<p  class='red'>+" + Obj[val].get_nums + "</p>"
+                    }else{
+                        li += "<p class='green'>" + Obj[val].get_nums + "</p>"
+                    }
+                    li += "<p>" + Obj[val].now_nums + "</p>"
+                    li += "<p>" + Obj[val].get_time + "</p>"
+                    li += "</li>"
+                }
+                $("#ul").append(li);
+            }
+        });
+    });
+
+
+   /**
+    *点击转出删除所有ajax记录
+    */
+  $("#zhuanchu").on("tap", "a", function () {
+        $("#ul").find('li').remove();
+    });
+//
+$("#ul").on("tap","li",function () {
+    var test = window.location.pathname;
+    //判断是否在余额或者记录查询页面
+        if($(this).data('tepy') =="liis"){
+            //判断是否是转账记录
+            window.location.href="mutualParticulars.html?ID="+$(this).data('id')+"&test="+test;
+        }if(test=="/Index/feedbackInfo.html"){
+            //跳转到用户反馈详情页面
+            window.location.href="/User/revertParticulars.html?ID="+$(this).data('id')+"&test="+test;
+        }else{
+            return false;
+        }
+
+})
+
+   //下拉加载
+    mui.init({
+        pullRefresh: {
+            container: '.refreshContainer',
+            up: {
+                callback: function () {
+                    var id = $("#ul").children("li").length;
+                    var test = window.location.pathname;
+                    $.ajax({
+                        url: "/Index/ajaxinfo",
+                        type: 'post',
+                        data: {
+                            'jilu': 'zhuanzhangjilu',
+                            'type':'xiala',
+                            'url':test,
+                            'page':"{$page}",
+                            'table':"{$table}",
+                            'in':"{$in}",
+                            'id':id,
+                            'where':"{$where}"
+                        },
+                        success: function (mes) {
+                            //console.log(3);
+                            if(mes.message=='"kong"' || mes.message==null || mes.message==undefined || mes.message==''){
+                                msg_alert('没有记录了哦');
+                                mui('.refreshContainer').pullRefresh().endPullupToRefresh(true);
+                                return;
+                            }
+                            var Obj = JSON.parse(mes.message);
+                            var li = "";
+                            var test = window.location.pathname;
+                            for (var val in Obj) {
+                                if(test=="/Index/feedbackInfo.html"){
+                                    li += "<li class='lis' data-id='"+Obj[val].id+"'>";
+                                    li += "<h2>" + Obj[val].content.substring(0,10) + "</h2>"
+                                    if(Obj[val].status==2){
+                                        li += "<h4>"+ Obj[val].reply.substr(0,10)+ "</h4>"
+                                        li +="<img src=\"{$Think.lang.yhfkycl}\" alt=\"\">"
+                                    }else{
+                                        li += "<h4>待回复</h4>"
+                                        li +="<img src=\"{$Think.lang.yhfkclz}\" alt=\"\">"
+                                    }
+                                    li += "<p class='mui-clearfix'>"
+                                    li += "<span class='fl'>Mikey钱包</span>"
+                                    li += "<span class='fr'>" + Obj[val].create_time + "</span></p>"
+                                    li += "</li>"
+                                }else{
+                                    if(Obj[val].get_type ==3 || Obj[val].get_type == 4){
+                                        li += "<li class='lis' data-tepy='liis'  data-id='"+Obj[val].id+"'>";
+                                    }else{
+                                        li += "<li class='lis' data-id='"+Obj[val].id+"'>";
+                                    }
+                                    li += "<p>" + Obj[val].type_name + "</p>"
+                                    // li +="<p>"+Obj[val].deputy_id+"</p>"
+                                    if(Obj[val].get_nums>0){
+                                        li += "<p  class='red'>+" + Obj[val].get_nums + "</p>"
+                                    }else{
+                                        li += "<p class='green'>" + Obj[val].get_nums + "</p>"
+                                    }
+                                    li += "<p>" + Obj[val].now_nums + "</p>"
+                                    li += "<p>" + Obj[val].get_time + "</p>"
+                                    li += "</li>"
+                                }
+
+                            }
+                            $("#ul").append(li);
+                        }
+                    });
+                     mui(".refreshContainer").pullRefresh().setStopped(false)
+                    mui('.refreshContainer').pullRefresh().endPullupToRefresh();
+                }
+            },
+             down:{
+                callback:function(){
+                    location.reload();
+                }
+            },
+
+        }
+    });
+</script>
+

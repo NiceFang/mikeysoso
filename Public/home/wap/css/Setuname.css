@@ -1,0 +1,106 @@
+div.user_info {
+    margin-top: 0;
+}
+
+.user_info .mui-input-group div.div_psw {
+    border-bottom: 1px solid #e5e5e5;
+    margin: 0;
+}
+
+.user_info .mui-input-group div.div_psw:last-child {
+    border-bottom: 0;
+}
+
+.user_info .user_info_lis label.name {
+    font-size: 0.2917rem;
+    color: #D4D4D4;
+}
+.user_info .user_info_lis {
+    margin-right: 0;
+}
+.user_info .user_info_lis input {
+    font-size: 0.2917rem;
+    text-indent: 0.2083rem;
+}
+
+.user_info .user_info_lis label.phone {
+    width: 25%;
+}
+
+.user_info .user_info_lis input.phone_input {
+    width: 75%;
+}
+
+
+
+div.mui-input-group .mui-input-row:after {
+    height: 0px;
+}
+
+form.mui-input-group .mui-input-row:after {
+    height: 0px;
+}
+
+form.mui-input-group:after {
+    height: 0px;
+   
+}
+
+div.name {
+    margin-top: 0.75rem;
+    color: #FFFFFF;
+    background-color: #002982;
+}
+
+.save_btn {
+    width: 6.6667rem;
+    height: 0.875rem;
+    border-radius: 0.4375rem;
+    margin: 0 auto;
+    background-color: #fff;
+    font-size: 0.4167rem;
+    color: #002982;
+    text-align: center;
+    line-height: 0.875rem;
+    margin-top: 0.75rem;
+}
+
+.save_btn.active {
+    background-color: #002982;
+    color: #fff;
+}
+
+
+.user_info .user_info_lis {
+    position: relative;
+    display: flex;
+}
+
+.user_info .user_info_lis img {
+    position: absolute;
+    width: 0.3333rem;
+    height: 0.3333rem;
+    top: 0.3333rem;
+    right: 0.4167rem;
+}
+.busy {
+    margin-top: 0.2083rem;
+    margin-right: 0.2917rem;
+    overflow: hidden;
+}
+.busy a {
+    font-size: 0.25rem;
+    color: #002982;
+}
+
+div.pwd_save {
+    margin-top: 1.3125rem;
+}
+
+.mui-input-row .mui-input-clear~.mui-icon-clear, .mui-input-row .mui-input-password~.mui-icon-eye, .mui-input-row .mui-input-speech~.mui-icon-speech {
+    top: 0.2917rem;
+    width: 0.7917rem;
+    height: 0.7917rem;
+    font-size: 0.4167rem;
+    
+}

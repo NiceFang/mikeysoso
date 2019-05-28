@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>回复详情</title>
+    <!-- <link rel="stylesheet" href="css/base.css"> -->
+    <link rel="stylesheet" href="__WCSS__/mui.min.css">
+    <link rel="stylesheet" href="__WCSS__/integralbase.css">
+    <link rel="stylesheet" href="__WCSS__/feedbackInfo.css">
+    <script src="__WJS__/rem.js"></script>
+    <script src="__WJS__/jquery1.11.1.min.js"></script>
+    <script src="__WJS__/mui.min.js"></script>
+    <script>
+    </script>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <!-- 头部 -->
+    <div class="hear">
+        <a href="{:U('Index/feedbackInfo')}" class="jiantou"><img src="__WIMG__/user/user_jiantouzuo.png" alt=""></a>
+        <p>回复详情</p>
+        <!-- 语言切换 -->
+        <!-- 先不要删掉 -->
+        <!-- <div class="top"> 
+            <div class="loginLanguage">
+                <div id="sample" class="dropdown">
+                    <div id="div_curr_lag" class="parent">
+                        <a href="#">
+                            <span><img class="flag" src="images/English.png" alt="" />English</span></a>
+                    </div>
+                    <div class="son">
+                        <div id="div_en-us" onclick="gradeOnclick('en-us')">
+                            <a>
+                                <img class="flag" src="images/china.png" alt="" />
+                                English
+                                <span class="value"></span>
+                            </a>
+                        </div>
+                        <div id="div_zh-cn" onclick="gradeOnclick('zh-cn')">
+                            <a>
+                                <img class="flag" src="images/china.png" alt="" />
+                                中文
+                                <span class="value"></span>
+                            </a>
+                        </div>
+                        <div id="div_zxcghy84-corean" onclick="gradeOnclick('zxcghy84-corean')">
+                            <a>
+                                <img class="flag" src="images/hanguo.png" alt="" />
+                                한국어
+                                <span class="value"></span>
+                            </a>
+                        </div>
+                        <div id="div_zxcghy84-jp" onclick="gradeOnclick('zxcghy84-jp')">
+                            <a>
+                                <img class="flag" src="images/Japan.png" alt="" />
+                                わぶん
+                                <span class="value"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    </div>
+
+    </div>
+
+    <!-- 反馈信息详情开始 -->
+    <div class="particulars">
+        <ul>
+            <if condition="$arr['status'] neq 2">
+                <li>
+                    <p class="title">尊敬的Mikey会员：</p>
+                    <p class="content"> 程序员小哥哥正在快马加鞭的解决您遇到的问题，请不要着急，请耐心等待。祝您生活愉快。</p>
+                    <p class="name "> Mikey钱包</p>
+                    <p class="time"></p>
+                </li>
+                <else/>
+                <li>
+                    <p class="title">{$arr.reply_prefix}：</p>
+                    <p class="content">{$arr.reply}</p>
+                    <p class="name "> Mikey钱包</p>
+                    <p class="time">{$arr.time}</p>
+                </li>
+            </if>
+            <li>
+                <p class="title">问题：</p>
+                <p class="content">{$arr.content}</p>
+                <p class="time">{$arr.create_time}</p>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 反馈信息详情结束 -->
+
+
+
+</body>
+
+</html>
+
+
+<script type="text/javascript">
+
+</script>

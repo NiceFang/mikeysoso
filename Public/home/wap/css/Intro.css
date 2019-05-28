@@ -1,0 +1,62 @@
+a,a:active,a:visited,a:link,a:focus{
+
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+    
+    -webkit-tap-highlight-color: transparent;
+    
+    outline:none;
+    
+    background: none;
+    
+    text-decoration: none;
+    
+}
+body {
+    background-color: #fff;
+}
+.er_code {
+    margin-top: 0.5208rem;
+    margin-bottom: 0.5rem;
+}
+.er_code_pic {
+    width: 4.25rem;
+    height: 4.25rem;
+    background: url('../images/integraimages/circular.png');
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    margin-bottom: 0.3125rem;
+}
+
+.er_code .txt {
+    font-size: 0.3333rem;
+    color: #002982;
+    margin-bottom: 0.2083rem;
+    text-align: center;
+}
+.er_code .txt_1 {
+    font-size: 0.2917rem;
+    color: #002982;
+    text-align: center;
+    
+}
+
+.checkBtn {
+    width: 5rem;
+    height: 0.7917rem;
+    background-color: #002982;
+    border-radius: 0.3958rem;
+    margin: 0 auto;
+}
+.checkBtn a {
+    width: 100%;
+    height: 100%;
+    display: block;
+    font-size: 0.3333rem;
+    color: #fff;
+    line-height: 0.7917rem;
+    text-align: center;
+}
+

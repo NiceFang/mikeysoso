@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>{$Think.lang.notice}</title>
+<link rel="stylesheet" href="__WCSS__/style.css">
+<link rel="stylesheet" href="__WCSS__/meCen.css">
+
+
+<link rel="stylesheet" href="__WCSS__/base.css">
+<link rel="stylesheet" href="__WCSS__/news.css">
+
+<script type="text/javascript" src="__WJS__/rem.js"></script>
+<!-- 获取头部的颜色 -->
+<script type="text/javascript" src="__WJS__/color.js"></script>
+
+<body>
+
+	<!-- 旧代码 -->
+	<!-- <div class="header">
+		<div class="header_l">
+			<a href="javascript:history.go(-1)"><img src="__WIMG__/jiant.png" alt=""></a>
+		</div>
+		<div class="header_c">
+			<h2>{$Think.lang.notice}</h2>
+		</div>
+		<div class="header_r"></div>
+	</div> -->
+
+	<!-- <div class="big_width100">
+		<ul class="genggao">
+			<foreach name="newinfo" item="v">
+				<li><a href="{:U('User/Newsdetail',array('nid'=>$v['id']))}">
+						<div class="gonggao_l ">
+							<h2><strong style="width: 100%;">{$v['title']}</strong> <span></span></h2>
+							<p>{$v['content']}</p>
+						</div>
+					</a>
+				</li>
+			</foreach>
+		</ul>
+	</div> -->
+
+	<!-- 新代码 -->
+
+	<div class="hear">
+		<a href="{:U('Index/index')}"><img src="__WIMG__/user_jiantouzuo.png" alt=""></a>
+		{$Think.lang.notice}
+	</div>
+
+	<div class="cont">
+		<ul>
+			<foreach name="newinfo" item="v">
+			<li class="list">
+				<a href="{:U('User/Newsdetail',array('nid'=>$v['id']))}">
+					<h2><?php echo strip_tags($v['title'])?></h2>
+					<!--<h2>{$v['title']}</h2>-->
+					<p class="title"><?php echo strip_tags($v['content'])?></p>
+					<!--<p class="title">{$v['content']}</p>-->
+					<p class="time ">
+						<span class="fl">Mikey钱包</span>
+						<span class="fr"><?php echo date("Y-m-d",$v['create_time'])?></span>
+					</p>
+				</a>
+			</li>
+			</foreach>
+		</ul>
+	</div>
+
+</body>
+
+</html>

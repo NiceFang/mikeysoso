@@ -1,0 +1,197 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>{$title}</title>
+
+<!-- 旧的代码 -->
+<!-- <link rel="stylesheet" href="__WCSS__/style.css">
+<link rel="stylesheet" href="__WCSS__/meCen.css"> -->
+
+<!-- 新的代码 -->
+<link rel="stylesheet" href="__WCSS__/base.css">
+<link rel="stylesheet" href="__WCSS__/mui.min.css">
+<link rel="stylesheet" href="__WCSS__/accountManage.css">
+<link rel="stylesheet" href="__WCSS__/Setuname.css">
+<script src="__WJS__/jquery1.11.1.min.js"></script>
+<script src="__WJS__/rem.js"></script>
+<script src="__WJS__/mui.min.js"></script>
+<script type="text/javascript" src="__COM__/layer/layer.js"></script>
+<script type="text/javascript" src="__COM__/js/index.js"></script>
+<!-- 获取头部的颜色 -->
+<script type="text/javascript" src="__WJS__/color.js"></script>
+
+
+<body>
+	<!-- 旧的代码 -->
+	<!-- <div class="header">
+	    <div class="header_l">
+	    <a href="javascript:history.go(-1)"><img src="__WIMG__/jiant.png" alt=""></a>
+	    </div>
+		<eq name="type" value="1">
+			<div class="header_c"><h2>{$Think.lang.uplogpwd}</h2></div>
+		<else/>
+			<div class="header_c"><h2>{$Think.lang.paypwdup}</h2></div>
+		</eq>
+
+	    <div class="header_r"></div>
+	</div>
+
+     <div class="big_width100">
+        <div class="add_bank_add_gr">
+	       <div class="fill_sty add_gr_b10">
+	       	<p>{$Think.lang.oldpwd}</p>
+	       	<input type="password" name="password" class="password" placeholder="{$Think.lang.srjmm}"   />
+	       </div>
+	       <div class="fill_sty add_gr_b10 mababno">
+	       	<p>{$Think.lang.newpwd}</p>
+	       	<input type="password" name="password" class="passwordrepat" placeholder="{$Think.lang.srxmm}"   />
+			   <input type="hidden" value="{$type}" class="pwdtype">
+	       </div>
+	     </div>
+
+	        <div class="wangjmim_se">
+				<eq name="type" value="1">
+					<a href="{:U('login/getpsw')}">{$Think.lang.forgelogpwd}</a>
+					<else />
+					<a href="{:U('login/getpswpay')}">{$Think.lang.wjzfmm}</a>
+				</eq>
+	        </div>
+
+	       <div class="buttonGeoup">
+	       		<a href="javascript:void(0)" class="not_next ljzf_but ">{$Think.lang.termine}</a>
+	       </div>
+	</div> -->
+
+	<!-- 新的代码 -->
+	<!-- 头部 -->
+	<div class="hear">
+		<a href="{:U('User/Personal')}"><img src="__WIMG__/user_jiantouzuo.png" alt=""></a>
+		{$title}
+	</div>
+
+	<!-- 密码 -->
+	<div class="user_info">
+		<form class="mui-input-group">
+			<div class="mui-input-row user_info_lis div_psw">
+				<label class="name pwd">{$Think.lang.oldpwd}</label>
+				<input type="password" class=" pwd_input password" placeholder=""  id="demo_input">
+				<img src="__WIMG__/keshi.png" alt="" id="demo_img"  onclick="hideShowPsw()">
+			</div>
+			<div class="mui-input-row user_info_lis div_psw">
+				<label class="name pwd">{$Think.lang.newpwd}</label>
+				<input type="password" class=" pwd_input passwordrepat" placeholder="" id="demo_input1">
+					<input type="hidden" value="{$type}" class="pwdtype">
+				<img src="__WIMG__/mima.png" alt="" id="demo_img1" onclick="hideShowPsw1()">
+			</div>
+		</form>
+	</div>
+
+	<!-- 忘记密码 -->
+	<div class="busy fr">
+		<eq name="type" value="1">
+			<a href="{:U('login/getpsw')}">{$Think.lang.forgelogpwd}</a>
+			<else />
+			<a href="{:U('login/getpswpay')}">{$Think.lang.wjzfmm}</a>
+		</eq>
+	</div>
+
+	<!-- 保存按钮 -->
+	<div class="save_btn  pwd_save">{$Think.lang.bc}</div>
+
+
+	<!--错误提示-->
+	<input type="hidden" id="jmmbnwk" value="{$Think.lang.jmmbnwk}">
+	<input type="hidden" id="xmmbnwk" value="{$Think.lang.xmmbnwk}"> <!--新密码不能为空哦-->
+	<input type="hidden" id="jymmznw6w" value="{$Think.lang.jymmznw6w}">
+</body>
+
+</html>
+<script>
+	// input 的值不为空添加按钮样式
+	$("form input").blur(function () {
+		if (($("#demo_input").val().trim() != "") && ($("#demo_input1").val().trim() != "")) {
+			$(".save_btn").addClass("active");
+		} else {
+			$(".save_btn").removeClass("active");
+		}
+	})
+
+	//隐藏text block，显示password block
+	// 点击显示隐藏密码
+	function hideShowPsw() {
+		var demoImg = document.getElementById("demo_img");
+		var demoInput = document.getElementById("demo_input");
+		if (demoInput.type == "password") {
+			demoInput.type = "text";
+			demo_img.src = "__WIMG__/keshi.png";
+		} else {
+			demoInput.type = "password";
+			demo_img.src = "__WIMG__/mima.png";
+		}
+	}
+	function hideShowPsw1() {
+		var demoImg1 = document.getElementById("demo_img1");
+		var demoInput1 = document.getElementById("demo_input1");
+		if (demoInput1.type == "password") {
+			demoInput1.type = "text";
+			demo_img1.src = "__WIMG__/keshi.png";
+		} else {
+			demoInput1.type = "password";
+			demo_img1.src = "__WIMG__/mima.png";
+		}
+	}
+
+
+	$('.pwd_save').click(function () {
+		//获取语言转换
+		var jmmbnwk = $('#jmmbnwk').val();
+		var xmmbnwk = $('#xmmbnwk').val();
+		var jymmznw6w = $('#jymmznw6w').val();
+		var pwdtype = $('.pwdtype').val();
+		var pwd = $('.password').val();
+		var pwdrpt = $('.passwordrepat').val(); //新密码
+        if (pwd == '') {
+            msg_alert(jmmbnwk);
+        }
+        if (pwdrpt == '') {
+            msg_alert(xmmbnwk);
+            return;
+        }
+		if(pwdtype==1){
+			if(pwdrpt.length<6 || pwdrpt.length>=20){
+				msg_alert("{$Think.lang.dlmmznwsz}")
+				return;
+			}
+			var regEn = /[`~!@#$%^&*()_+<>?:"{},.\/;'[\]]/im,
+				regCn = /[·！#￥（——）：；“”‘、，|《。》？、【】[\]]/im;
+			if(regEn.test(pwdrpt) || regCn.test(pwdrpt)) {
+				msg_alert("登录密码不能包涵特殊字符.");
+				return;
+			}
+        }else if(pwdtype==2){
+		    var reg =/^\d{6}$/;
+		    if(!reg.test(pwdrpt)){
+                msg_alert("{$Think.lang.jymmznw6w}")
+                return;
+			}
+		}
+		$.ajax({
+			url: '/User/Setpwd',
+			type: 'post',
+			data: {
+				'pwd': pwd,
+				'pwdrpt': pwdrpt,
+				'pwdtype': pwdtype
+			},
+			datatype: 'json',
+			success: function (mes) {
+				if (mes.status == 1) {
+
+					msg_alert(mes.message, mes.url);
+				} else {
+					msg_alert(mes.message);
+				}
+			}
+		})
+	})
+</script>

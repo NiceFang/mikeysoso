@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>{$Think.lang.ncxg}</title>
+
+<!-- 旧的代码 -->
+<!-- <link rel="stylesheet" href="__WCSS__/style.css">
+<link rel="stylesheet" href="__WCSS__/meCen.css"> -->
+
+<!-- 新的代码 -->
+<link rel="stylesheet" href="__WCSS__/base.css">
+<link rel="stylesheet" href="__WCSS__/mui.min.css">
+<link rel="stylesheet" href="__WCSS__/Setuname.css">
+<link rel="stylesheet" href="__WCSS__/accountManage.css">
+<script src="__WJS__/rem.js"></script>
+<script src="__WJS__/mui.min.js"></script>
+
+
+<script src="__WJS__/jquery1.11.1.min.js"></script>
+<script type="text/javascript" src="__COM__/layer/layer.js"></script>
+<script type="text/javascript" src="__COM__/js/index.js"></script>
+<!-- 获取头部的颜色 -->
+<script type="text/javascript" src="__WJS__/color.js"></script>
+
+<body>
+    <!-- 旧的代码 -->
+    <!-- <div class="header">
+        <div class="header_l">
+            <a href="javascript:history.go(-1)"><img src="__WIMG__/jiant.png" alt=""></a>
+        </div>
+        <div class="header_c">
+            <h2>{$Think.lang.ncxg}</h2>
+        </div>
+        <div class="header_r"></div>
+    </div>
+
+    <div class="big_width100">
+        <div class="nic_xiu">
+            <input type="text" name="username" class="username" value="{$uname}" placeholder="{$Think.lang.qsrnc}"
+                autocomplete="off" />
+        </div>
+
+        <div class="buttonGeoup">
+            <a href="javascript:void(0)" class="not_next ljzf_but ">{$Think.lang.termine}</a>
+        </div>
+    </div>
+    <input type="hidden" id="qtxnc" value="{$Think.lang.qtxnc}"> -->
+
+    <!-- 头部 -->
+    <div class="hear">
+        <a href="{:U('User/Personal')}"><img src="__WIMG__/user_jiantouzuo.png" alt=""></a>
+        {$Think.lang.upname}
+    </div>
+
+    <!-- 用户信息 -->
+    <div class="user_info">
+        <form class="mui-input-group">
+            <div class="mui-input-row user_info_lis">
+                <label class="name nick">{$Think.lang.nickname}</label>
+                <input type="text" class="mui-input-clear nick_input username" placeholder="{$Think.lang.qsrnc}" value="{$uname}">
+                <!--<input type="text" name="username" class="username" value="{$uname}" placeholder="请输入昵称" autocomplete="off"/>-->
+            </div>
+        </form>
+    </div>
+
+    <!-- 保存按钮 -->
+    <div class="save_btn ">{$Think.lang.bc}</div>
+</body>
+
+</html>
+<script>
+     // 判断名字是否为空, 为其保存按钮添加样式
+     $(".nick_input").blur(function () {
+        if ($(".nick_input").val().trim() != "") {
+            $(".save_btn").addClass("active");
+        } else {
+            $(".save_btn").removeClass("active");
+        }
+    })
+
+    $('.save_btn').click(function () {
+        var uname = $('.username').val();
+        if(uname == null || uname == undefined || uname == '' ){
+            msg_alert("{$Think.lang.qtxnc}");
+            return;
+        }
+        if(uname.length>6){
+            msg_alert("<?php echo L('nczcbcggz')?>");
+            return;
+        }
+        $.ajax({
+            url:'/User/Setuname',
+            type:'post',
+            data:{'uname':uname},
+            datatype:'json',
+            success:function (mes) {
+                if(mes.status == 1){
+                    msg_alert(mes.message,mes.url);
+                }else{
+                    msg_alert(mes.message);
+                }
+            }
+        })
+    })
+</script>

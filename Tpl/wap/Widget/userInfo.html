@@ -1,0 +1,42 @@
+<div class="user_info_box">
+    <div class="user_info_box_cont">
+        <div class="user_info_box_cont_top">
+            <div class="div_img fl">
+                <!--<img src="__WIMG__/{$userinfos.img_head}" alt="">-->
+                <img src="__IMGHEAD__/{$userinfos.img_head}" alt="">
+            </div>
+            <div class="user_info_left fl">
+                <p class="name">{$Think.lang.nickname}:{$userinfos['username']}</p>
+                <p class="uid">UID : {$userinfos.userid} </p>
+                <if condition="$userinfos['use_grade'] eq 1">
+                <p>{$Think.lang.rank}:{$Think.lang.zyz}</p>
+                    <elseif condition="$userinfos['use_grade'] eq 2"/>
+                    <p>{$Think.lang.rank}:{$Think.lang.hbws}</p>
+                    <elseif condition="$userinfos['use_grade'] eq 3"/>
+                    <p>{$Think.lang.rank}:{$Think.lang.hbkw}</p>
+                    <elseif condition="$userinfos['use_grade'] eq 4"/>
+                    <p>{$Think.lang.rank}:{$Think.lang.hbdr}</p>
+                    <elseif condition="$userinfos['use_grade'] eq 5"/>
+                    <p>{$Think.lang.rank}:{$Think.lang.hbds}</p>
+                </if>
+            </div>
+        </div>
+        <div class="mony">
+            <div class="balance">
+                <span>{$Think.lang.yue}:</span>
+                <p>
+                <img src="__WIMG__/balance3030.png" alt="">
+                <span  class="yue" id="money" >{$moneyinfos['cangku_num']}</span>
+                </p>
+            </div>
+
+            <div class="integral">
+                <span>{$Think.lang.jifen}:</span>
+                <p>
+                <img src="__WIMG__/balance3030.png" alt="">
+                <span>{$moneyinfos['fengmi_num']}</span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
